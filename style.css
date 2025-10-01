@@ -1,0 +1,152 @@
+:root{
+  --green-1:#1d8348;
+  --green-2:#000000;
+  --bg:#f4f7f5;
+  --card-bg:#ffffff;
+  --grey: #d4d4d4;
+}
+*{box-sizing:border-box}
+body{
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+  margin:0;
+  background:var(--bg);
+  color:#222;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Header */
+header{
+  display:flex;
+  align-items:center;
+  justify-content:left;
+  gap:4rem;
+  padding:1rem 2rem;
+  background:linear-gradient(135deg,var(--green-1),var(--green-2));
+  color:#0c0808;
+  box-shadow:0 2px 8px rgba(0,0,0,0.12);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.logo{height:70px;width:auto}
+header h1{margin:10px;font-size:1.5rem;color:black;}
+
+/* Sections */
+.section-title{
+  margin:2rem 2rem 1rem 2rem;
+  color:var(--green-1);
+  font-size:1.2rem;
+  font-weight:700
+}
+
+/* Cards grid */
+.cards-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1rem;
+  padding:0 2rem 2rem 2rem;
+}
+.card{
+  background:var(--card-bg);
+  padding:1.25rem;
+  border-radius:120px;
+  box-shadow:0 6px 18px (--green-1);
+  cursor:pointer;
+  transition:transform .18s ease,box-shadow .18s ease;
+  text-align:center;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.10)}
+.card h2{margin:0;color:var(--green-1);font-size:1.1rem}
+
+/* Diary list */
+.add-btn{
+  display:inline-block;
+  margin:0 2rem 1rem 2rem;
+  background:linear-gradient(135deg,var(--green-1),var(--green-2));
+  color:#fff;
+  border:none;
+  padding:.5rem .9rem;
+  border-radius:80px;
+  cursor:pointer;
+  font-weight:700;
+}
+.add-btn:hover{background:var(--green-1)}
+.diary-list{display:flex;flex-direction:column;gap:2rem;padding:0 2rem 2rem 2rem}
+.diary-entry{
+  background:var(--card-bg);
+  padding:1rem 1.25rem;
+  border-radius:50px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.06);
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;
+}
+.diary-entry .meta{color:#444}
+.diary-entry .edit-entry{cursor:pointer;color:var(--green-1);font-weight:700}
+
+/* Popup overlay + card (z-index layering) */
+#popup-background{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,0.35);
+  backdrop-filter:blur(2px);
+  opacity:0;visibility:hidden;transition:opacity .9s ease;
+  z-index:900;
+}
+#popup-background.active{opacity:1;visibility:visible}
+
+/* Dialog card sits above overlay */
+#detail-card{
+  position:fixed;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(.95);
+  width:90%;
+  max-width:860px;
+  max-height:88vh;
+  overflow-y:auto;
+  background:var(--card-bg);
+  border-radius:30px;
+  padding:1.5rem 1.75rem;
+  box-shadow:0 30px 80px rgba(0,0,0,0.25);
+  opacity:0;visibility:hidden;transition:all .6s ease;
+  z-index:1000;
+}
+#detail-card.active{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}
+.back-btn{
+  position:absolute;left:14px;top:14px;border:0;background:transparent;font-size:1.5rem;cursor:pointer;color:var(--green-1)
+}
+.edit-btn{
+  margin-top:1rem;background:var(--grey);color:#fff;border:0;padding:.6rem .9rem;border-radius:8px;cursor:pointer;float:right
+}
+.edit-btn:hover{background:var(--green-1)}
+
+/* Card content */
+#card-content h2{margin:0 0 .75rem 0;color:var(--green-1);font-size:1.6rem}
+.section{margin-bottom:1rem}
+.section h3{margin:0 0 .4rem 0;color:var(--green-1);font-size:1rem}
+.section p{margin:0;color:#333;line-height:1.4}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+.chip{background:linear-gradient(135deg,var(--green-1),var(--green-2));color:#fff;padding:.4rem .8rem;border-radius:999px;font-weight:600}
+
+/* Edit form overlay (on top of everything) */
+#edit-form{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);z-index:1100}
+#edit-form.active{display:flex}
+.form-container{background:#fff;padding:1.25rem;border-radius:12px;width:92%;max-width:640px;max-height:88vh;overflow:auto}
+.form-container h2{margin:0 0 .5rem 0;color:var(--green-1)}
+.form-container label{display:block;margin-top:.8rem;font-weight:700}
+.form-container input,.form-container textarea{width:100%;padding:.5rem;margin-top:.3rem;border-radius:8px;border:1px solid #ddd}
+.form-actions{display:flex;justify-content:flex-end;gap:.6rem;margin-top:1rem}
+.btn{padding:.55rem .9rem;border-radius:8px;border:0;cursor:pointer}
+.save-btn{background:var(--green-2);color:#fff}
+.cancel-btn{background:#bbb;color:#fff}
+
+/* map iframe container */
+.map-iframe{width:100%;height:300px;border-radius:8px;border:0;margin-top:.6rem;}
+
+/* responsive */
+@media (max-width:600px){
+  header{padding:.8rem}
+  .card{padding:1rem}
+  #detail-card{padding:1rem;width:95%}
+  .map-iframe{height:200px}
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AGRAVIS Teamkarten & Tagebuch</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Agravis_Raiffeisen_logo.svg/330px-Agravis_Raiffeisen_logo.svg.png" alt="AGRAVIS Logo" class="logo" />
+    <h1>Beruforientierung</h1>
+  </header>
+
+  <main>
+    <h2 class="section-title">Interviews</h2>
+    <section id="overview" class="cards-container"></section>
+
+    <h2 class="section-title">Tagebuch</h2>
+    <button id="add-entry" class="add-btn">➕ Neuer Eintrag</button>
+    <section id="diary" class="diary-list"></section>
+  </main>
+
+  <!-- Overlay / Popup -->
+  <div id="popup-background" aria-hidden="true"></div>
+
+  <div id="detail-card" role="dialog" aria-modal="true">
+    <button id="close-card" class="back-btn" aria-label="Zurück">←</button>
+    <div id="card-content"></div>
+    <button id="edit-card" class="edit-btn">✎ Bearbeiten</button>
+  </div>
+
+  <!-- Edit Form -->
+  <div id="edit-form" aria-hidden="true">
+    <div class="form-container">
+      <h2>Eintrag bearbeiten</h2>
+      <form id="form"></form>
+      <div class="form-actions">
+        <button type="submit" form="form" class="btn save-btn">💾 Speichern</button>
+        <button type="button" id="cancel-edit" class="btn cancel-btn">✖ Abbrechen</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
