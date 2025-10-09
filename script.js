@@ -83,6 +83,7 @@ let diaryData = [
   {tag:"Tag 8",inhalt:"Selbständiges Arbeiten an Berufsorientierung"},
   {tag:"Tag 9",inhalt:"Selbständiges Arbeiten"},
   {tag:"Tag 10",inhalt:"SAP idoc-monitoring (CAR & GAD), Teammeeting im SAP-Team, SAP-Talk, Testkasse + Übungsaufgaben und Update Kassensystem + Fehlersuche"},
+  {tag:"Tag 11",inhalt:"Team-Meeting Interfaces & Development, Kassen Updates, Idoc Monitoring, Abschlussgespräch"},
 ];
 
 // -------------------- DOM --------------------
@@ -261,5 +262,6 @@ document.addEventListener('keydown', (e)=>{
 // -------------------- INIT --------------------
 renderTeam();
 renderDiary();
+
 
 
